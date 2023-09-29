@@ -12,14 +12,15 @@ class reward_network(rl_network):
     c_threshold = 0.0
     t_threshold = 0.0
     def _create_placeholders(self):
-        self.uid = tf.placeholder(tf.int32, (None,))
-        self.iid = tf.placeholder(tf.int32, (None,))
-        self.trajectory = tf.placeholder(tf.int32 ,(None,None))
-        self.target_index = tf.placeholder(tf.int32,(None,2))
-        self.feedback = tf.placeholder(tf.float32,(None,None))
-        self.terminate = tf.placeholder(tf.float32,(None,))
-        self.target_value = tf.placeholder(tf.float32, (None,))
-        self.weight = tf.placeholder(tf.float32,(None,))
+        # self.uid = tf.placeholder(tf.int32, (None,))
+        self.uid = tf.compat.v1.placeholder(tf.int32, (None,))
+        self.iid = tf.compat.v1.placeholder(tf.int32, (None,))
+        self.trajectory = tf.compat.v1.placeholder(tf.int32 ,(None,None))
+        self.target_index = tf.compat.v1.placeholder(tf.int32,(None,2))
+        self.feedback = tf.compat.v1.placeholder(tf.float32,(None,None))
+        self.terminate = tf.compat.v1.placeholder(tf.float32,(None,))
+        self.target_value = tf.compat.v1.placeholder(tf.float32, (None,))
+        self.weight = tf.compat.v1.placeholder(tf.float32,(None,))
 
     def _update_placehoders(self):
         self.placeholders["all"] = {"uid":self.uid,
