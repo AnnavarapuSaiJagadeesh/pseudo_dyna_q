@@ -51,7 +51,9 @@ def parse_arguments(*args):
     parser.add_argument("-sample_n",dest='sample_n',type=int,default=10)
     parser.add_argument("-mini_temperature",dest='mini_temperature',type=int,default=5.0)
     args = parser.parse_args()
-    args.GPU_OPTION = tf.GPUOptions(allow_growth=True)
+    # args.GPU_OPTION = tf.GPUOptions(allow_growth=True)
+    # args.GPU_OPTION = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.333) from stackoverflow
+    args.GPU_OPTION = tf.compat.v1.GPUOptions(allow_growth=True)
     args.RANDOM_SEED = 123
     args.LATENT_FACTOR = 200
     args.RNN_HIDDEN = 200
