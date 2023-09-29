@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import numpy as np
-import ipdb
+# import ipdb
 from environment import ground_truth,diversity_environments
 from utils.zlog import log
 from progressbar import ProgressBar
