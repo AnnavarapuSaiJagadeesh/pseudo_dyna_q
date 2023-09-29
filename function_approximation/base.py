@@ -11,7 +11,7 @@ import numpy as np
 import ipdb
 import tensorflow as tf
 from tensorflow.python.ops.rnn_cell_impl import *
-from tensorflow.contrib.model_pruning.python.layers import core_layers
+# from tensorflow.contrib.model_pruning.python.layers import core_layers
 _BIAS_VARIABLE_NAME = "bias"
 _WEIGHTS_VARIABLE_NAME = "kernel"
 _clipped_value = 100000000.0
