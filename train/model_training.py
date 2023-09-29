@@ -5,7 +5,7 @@
 import numpy as np
 import ipdb
 from function_approximation import reward_network,rl_network,q_network
-from environment import diversity_environments
+from environment.ground_truth import diversity_environments
 from utils.zlog import log
 from utils.data_structure import type_memory
 from utils.time_analyse import timeit
