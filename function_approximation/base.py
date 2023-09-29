@@ -15,7 +15,7 @@ from tensorflow.python.ops.rnn_cell_impl import *
 _BIAS_VARIABLE_NAME = "bias"
 _WEIGHTS_VARIABLE_NAME = "kernel"
 _clipped_value = 100000000.0
-class nlstm(tf.nn.rnn_cell.BasicLSTMCell):
+class nlstm(tf.compat.v1.nn.rnn_cell.MultiRNNCell):
     @property
     def state_size(self):
         return (LSTMStateTuple(self._num_units, self._num_units)
