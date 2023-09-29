@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import numpy as np
-import ipdb
+# import ipdb
 from arguments import parse_arguments,initialize
 import utils
 import os

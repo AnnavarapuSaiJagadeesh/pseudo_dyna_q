@@ -3,12 +3,12 @@
 
 
 import numpy as np
-import ipdb
+# import ipdb
 import tensorflow as tf
 from utils.zlog import log
 
 import numpy as np
-import ipdb
+# import ipdb
 import tensorflow as tf
 from tensorflow.python.ops.rnn_cell_impl import *
 # from tensorflow.contrib.model_pruning.python.layers import core_layers

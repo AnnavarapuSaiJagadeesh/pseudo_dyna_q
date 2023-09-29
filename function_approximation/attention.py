@@ -3,7 +3,7 @@
 
 
 import numpy as np
-import ipdb
+# import ipdb
 import tensorflow as tf
 
 def vanilla_attention(item,seq,seq_mask,**args):

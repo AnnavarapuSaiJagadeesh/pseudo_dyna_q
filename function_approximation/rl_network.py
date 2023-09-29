@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import numpy as np
-import ipdb
+# import ipdb
 import tensorflow as tf
 from .base import basic_model
 from .attention import vanilla_attention,vanilla_attention_for_all
