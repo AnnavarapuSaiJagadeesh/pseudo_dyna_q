@@ -179,7 +179,8 @@ class basic_model(object):
         self._build_model()
 
     def _build_model(self):
-        with tf.variable_scope(self.variable_scope):
+        # with tf.variable_scope(self.variable_scope):
+        with tf.compat.v1.variable_scope(self.variable_scope):
             self._create_placeholders()
             self._create_global_step()
             self._update_placehoders()
