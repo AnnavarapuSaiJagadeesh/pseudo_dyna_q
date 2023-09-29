@@ -39,12 +39,12 @@ class reward_network(rl_network):
 
     def _create_inference(self):
         # initializer = tf.random_uniform_initializer(0, 0.1, seed=self.config.RANDOM_SEED)
-        initializer = tf.random.uniform_initializer(0, 0.1, seed=self.config.RANDOM_SEED)
-        item_feature = tf.Variable(tf.random.uniform([self.config.item_number, self.config.latent_factor],
+        initializer = tf.keras.initializers.RandomUniform(0, 0.1, seed=self.config.RANDOM_SEED)
+        item_feature = tf.Variable(tf.keras.initializers.RandomUniform([self.config.item_number, self.config.latent_factor],
                                                      0, 0.1), trainable=self.trainable, name='item_feature')
-        user_feature = tf.Variable(tf.random.uniform([self.config.user_number, self.config.latent_factor],
+        user_feature = tf.Variable(tf.keras.initializers.RandomUniform([self.config.user_number, self.config.latent_factor],
                                                      0, 0.1), trainable=self.trainable, name='user_feature')
-        projection_weight = [tf.Variable(tf.random.uniform([self.config.latent_factor, self.config.latent_factor],
+        projection_weight = [tf.Variable(tf.keras.initializers.RandomUniform([self.config.latent_factor, self.config.latent_factor],
                                                            0, 0.1), trainable=self.trainable,
                                          name='projections_' + str(i))
                              for i in range(self.config.feedback_number)]
@@ -73,7 +73,7 @@ class reward_network(rl_network):
 
         #### calculate the score
         w_last = [0.3,0.3,0.3]
-        last_layer = [tf.Variable(tf.random.uniform((self.config.item_number,
+        last_layer = [tf.Variable(tf.keras.initializers.RandomUniform((self.config.item_number,
                                                      self.config.latent_factor), 0.0, 0.1),
                                   name='last_layer', trainable=True) for i in range(3)]
         last_feature = [tf.nn.embedding_lookup(last_layer[i], self.iid) for i in range(3)]
@@ -93,7 +93,7 @@ class reward_network(rl_network):
 
         #### terminate
         w_terminate = [0.3, 0.3, 0.3]
-        terminate_weight = [tf.Variable(tf.random.uniform((self.config.item_number,
+        terminate_weight = [tf.Variable(tf.keras.initializers.RandomUniform((self.config.item_number,
                                                      self.config.latent_factor), 0.0, 0.1),
                                   name='last_layer', trainable=True) for i in range(3)]
         terminate_feature = [tf.nn.embedding_lookup(terminate_weight[i], self.iid) for i in range(3)]
