@@ -207,14 +207,14 @@ class basic_model(object):
 
     def build_cell(self,rnn_type,initializer,hidden,input_data,initial_state):
         if rnn_type == "nlstm":
-            cell = tf.contrib.rnn.MultiRNNCell([nlstm(hidden)]*self.config.RNN_LAYER)
+            cell = tf.compat.v1.estimator.rnn.MultiRNNCell([nlstm(hidden)]*self.config.RNN_LAYER)
             return tf.nn.dynamic_rnn(cell, input_data,
                                      initial_state=(tf.nn.rnn_cell.LSTMStateTuple(c=tf.zeros_like(initial_state[0]),
                                                                                   h=initial_state[0]),),
                                      dtype=tf.float32,
                                      time_major=True)
         elif rnn_type == "mem":
-            cell = tf.contrib.rnn.MultiRNNCell([memory_cell(hidden)]*self.config.RNN_LAYER)
+            cell = tf.compat.v1.estimator.rnn.MultiRNNCell([memory_cell(hidden)]*self.config.RNN_LAYER)
             return tf.nn.dynamic_rnn(cell, input_data,
                                      initial_state=(tf.nn.rnn_cell.LSTMStateTuple(c=tf.zeros_like(initial_state[0]),
                                                                                   h=initial_state[0]),),
